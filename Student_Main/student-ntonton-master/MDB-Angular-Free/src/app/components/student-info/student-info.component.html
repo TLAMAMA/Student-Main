@@ -1,0 +1,55 @@
+<div style="height: 100vh">
+    <div class="flex-center flex-column">
+      <div class="card">
+        <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Student-list</h3>
+        <div class="card-body">
+          <div id="table" class="student-list">
+            <span class="table-add float-right mb-3 mr-2">
+              <a class="text-success" (click)="add()">
+                <mdb-icon fas icon="plus" size="2x"></mdb-icon>
+              </a>
+            </span>
+            <table class="table table-bordered table-responsive-md table-striped text-center">
+              <tr>
+                <th class="text-center">STUDENT</th>
+                <th class="text-center">ID NUMBER</th>
+                <th class="text-center">EMAIL.ADD</th>
+                <th class="text-center">MODULES</th>
+                <th class="text-center">DATE REGISTERED</th>
+                <th class="text-center">DATE EDITED</th>
+                <th class="text-center">ACTIONS</th>
+              </tr>
+              <tr *ngFor="let person of personList; let id = index">
+                <td>
+                    <span (keyup)="changeValue(id, 'name', $event)" (blur)="updateList(id, 'name', $event)" contenteditable="true">{{student.names}}</span>
+                </td>
+                <td>
+                  <span contenteditable="true" (keyup)="changeValue(id, 'age', $event)" (blur)="updateList(id, 'age', $event)">{{student.id}}</span>
+                </td>
+                <td>
+                  <span contenteditable="true" (keyup)="changeValue(id, 'companyName', $event)" (blur)="updateList(id, 'companyName', $event)">{{student.email}}</span>
+                </td>
+                <td>
+                  <span contenteditable="true" (keyup)="changeValue(id, 'country', $event)" (blur)="updateList(id, 'country', $event)">{{student.modules}}</span>
+                </td>
+                <td>
+                  <span contenteditable="true" (keyup)="changeValue(id, 'city', $event)" (blur)="updateList(id, 'city', $event)">{{person.city}}</span>
+                </td>
+                <td>
+                <td>
+                  <span class="table-remove">
+                    <button type="button" mdbBtn color="danger" rounded="true" size="sm" class="my-0" (click)="remove(id)">DEL</button>
+                  </span>
+
+                  <span class="table-view">
+                      <button type="button" mdbBtn color="success" rounded="true" size="sm" class="my-0" (click)="view(id)">VIEW</button>
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- Editable table -->
+    </div>
+  </div>
